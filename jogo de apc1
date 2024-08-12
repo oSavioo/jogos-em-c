@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char pergunta[100];
+    int tipo; // 0 para verdadeiro e falso; 1 para múltipla escolha
+    union {
+        int respostaVF;
+        struct {
+            char opcoes[4][100];
+            int respostaMC;
+        };
+    };
+} Pergunta;
+
+int main() {
+    
+        
+    int opcao;
+    Pergunta perguntas[5];
+
+    strcpy(perguntas[0].pergunta, "Comando switch equivale a uma sequência de if-else-if? ");
+    perguntas[0].tipo = 0;
+    perguntas[0].respostaVF = 1;
+
+    strcpy(perguntas[1].pergunta, "Comando continue serve para interromper uma repetição?");
+    perguntas[1].tipo = 0;
+    perguntas[1].respostaVF = 0;
+
+    strcpy(perguntas[2].pergunta, "Qual a sintaxe correta para inicializar uma matriz em C?");
+    perguntas[2].tipo = 1;
+    strcpy(perguntas[2].opcoes[0], "a) int s[] = {1, 5, 8, 10}");
+    strcpy(perguntas[2].opcoes[1], "b) int s[4] = {1, 5, 8, 10}");
+    strcpy(perguntas[2].opcoes[2], "c) int s[2][2] = {{1, 5}, {8, 10}}");
+    strcpy(perguntas[2].opcoes[3], "d) int s[4][2] = {{1, 5, 8, 10}, {2, 4, 3, 6}}");
+    perguntas[2].respostaMC = 1;
+
+    strcpy(perguntas[3].pergunta, "Qual função em C que localiza uma string dentro de outra?");
+    perguntas[3].tipo = 1;
+    strcpy(perguntas[3].opcoes[0], "a) strcmp");
+    strcpy(perguntas[3].opcoes[1], "b) strchr");
+    strcpy(perguntas[3].opcoes[2], "c) strstr");
+    strcpy(perguntas[3].opcoes[3], "d) strcat");
+    perguntas[3].respostaMC = 3;
+
+    strcpy(perguntas[4].pergunta, "Qual a sintaxe correta para declarar uma enumeração em C?");
+    perguntas[4].tipo = 1;
+    strcpy(perguntas[4].opcoes[0], "a) enum [<constante>=<valor>] <id>");
+    strcpy(perguntas[4].opcoes[1], "b) enum <id> {<constante>=<valor>}");
+    strcpy(perguntas[4].opcoes[2], "c) enum <id> [<constante>=<valor>]");
+    strcpy(perguntas[4].opcoes[3], "d) {<constante>=<valor>} enum <id>");
+    perguntas[4].respostaMC = 2;
+
+    do {
+        printf("===== MENU =====\n");
+        printf("1. Iniciar Jogo\n");
+        printf("2. Instruções\n");
+        printf("3. Sair\n");
+        printf("Escolha uma opção: ");
+scanf("%d", &opcao);
+       switch (opcao) {
+        case 1:
+            {
+                int score = 0;
+
+                printf("\nBem-vindo ao Quiz!\n");
+                printf("Escolha a opção correta digitando o número correspondente.\n\n");
+
+                for (int i = 0; i < 5; i++) {
+                    printf("Pergunta %d: %s\n", i + 1, perguntas[i].pergunta);
+
+                    if (perguntas[i].tipo == 0) {
+                        printf("Digite 1 para Verdadeiro ou 0 para Falso: ");
+                        int resposta;
+                        scanf("%d", &resposta);
+
+                        if (resposta == perguntas[i].respostaVF) {
+                            printf("\nResposta correta!\n\n");
+                            score++;
+                        } else {
+                            printf("\nResposta incorreta!\n\n");
+                        }
+                    } else {
+                        for (int j = 0; j < 4; j++) {
+                            printf("%d. %s\n", j + 1, perguntas[i].opcoes[j]);
+                        }
+                        printf("Escolha um numero de 1 a 4: ");
+                        int resposta;
+                        scanf("%d", &resposta);
+
+                        if (resposta == perguntas[i].respostaMC) {
+                
+                            printf("\nResposta correta!\n\n");
+                            score++;
+                        } else {
+                            printf("\nResposta incorreta!\n\n");
+                        }
+                    }
+                }
+
+                printf("\nFim do Jogo!\n");
+                printf("Pontuação final: %d/5\n\n", score);
+            }
+            break;
+        case 2:
+            printf("\nInstruções do jogo:\n");
+            printf("\nEscolha a opção correta digitando o número correspondente.\n");
+            printf("Tente responder o máximo de perguntas corretamente para obter a maior pontuação.\n\n");
+            break;
+        case 3:
+            printf("Obrigado por jogar e volte sempre!\n");
+            break;
+        default:
+            printf("Opção inválida. Tente novamente.\n");
+            break;
+    }
+} while (opcao != 3);
+
+return 0;
+}
