@@ -1,0 +1,5 @@
+Um outro jogo que fiz no inicio da minha faculdade, juntamente com os estudos no Alura.
+É um jogo de adivinhação, no qual inicialmente você terá 4 opções escolhendo a dificuldade do jogo, com cada dificuldade possuindo diferentes tentativas
+Após escolher a dificuldade, o sistema irá gerar um número aleatório entre 0 e 100
+De acordo com suas tentativas ao acertar o número, irá gerar uma certa pontuação no final
+Teste o jogo, veja as instruções antes e divirta-se! :) 
