@@ -1,0 +1,6 @@
+É um jogo que possui 2 arquivos, um arquivo de Código e outro das respostas.
+É um jogo da forca com foco em frutas.
+Um código bem simples no qual eu aprendi fazendo em um curso no Alura, não possui tantas informações, mas é um jogo bem completo pelo que se pede
+É possível adicionar mais palavras no arquivo das respostas.
+Não possui instruções mas é bem simples e didático. Espero que divirta-se.
+:p
