@@ -1,0 +1,5 @@
+Esse é um jogo da velha no qual fiz em minha primeira matéria de Algoritmos de Programação
+Um jogo feito em C, podendo ser jogado em dupla. 
+Possui um pequeno menu,tendo as seguintes opções -> instruções, a jogabilidade e sair do jogo
+Um programa possuindo comandos bem simples com for, while e ifs e elses. 
+Para conseguir jogar basta ver as instruções e divirta-se. 
